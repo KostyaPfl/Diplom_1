@@ -18,7 +18,7 @@ class TestDatabase:
     def test_available_buns_list(self, expected_bun):
         database = Database()
         buns = database.available_buns()
-        available_buns_names = [bun.name for bun in buns]
+        available_buns_names = helpers.get_available_items_names(buns)
         assert (expected_bun in available_buns_names and
                 helpers.validate_items_class(buns, Bun)), "Список доступных булок пуст"
 
@@ -36,7 +36,7 @@ class TestDatabase:
     def test_available_ingredients_list(self, expected_ingredient):
         database = Database()
         ingredients = database.available_ingredients()
-        available_ingredients_names = helpers.get_available_ingredient_names(ingredients)
+        available_ingredients_names = helpers.get_available_items_names(ingredients)
         assert (expected_ingredient in available_ingredients_names and
                 helpers.validate_items_class(ingredients, Ingredient))
 
